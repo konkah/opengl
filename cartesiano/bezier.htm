@@ -1,0 +1,146 @@
+<html>
+	<head>
+		<style type="text/css">
+			div {
+				width: 400px;
+				height: 400px;
+				border: #000 1px dashed;
+				display: inline-block;
+				position: relative;
+			}
+
+			div span {
+				position: absolute;
+				width: 5px;
+				height: 5px;
+				display: inline-block;
+			}
+
+			div span.pA {
+				background: #00C;
+			}
+
+			div span.pB {
+				background: #090;
+			}
+
+			div span.pC {
+				background: #C00;
+			}
+
+			div span.pD {
+				background: #990;
+			}
+
+			div span.B {
+				background: #C0C;
+			}
+
+			.g1 .pA { top: 100px; left: 100px; }	.g2 .pA { top: 100px; left: 100px; }	.g3 .pA { top: 100px; left: 100px; }
+			.g1 .pB { top: 180px; left: 180px; }	.g2 .pB { top: 180px; left: 100px; }	.g3 .pB { top: 100px; left: 180px; }
+			.g1 .pC { top: 250px; left: 80px; }		.g2 .pC { top: 80px; left: 100px; }		.g3 .pC { top: 100px; left: 250px; }
+			.g1 .pD { top: 360px; left: 200px; }	.g2 .pD { top: 200px; left: 100px; }	.g3 .pD { top: 100px; left: 360px; }
+
+			.g1 .p1 { top: 111px; left: 110px; }	.g2 .p1 { top: 110px; left: 100px; }	.g3 .p1 { top: 100px; left: 111px; }
+			.g1 .p2 { top: 123px; left: 118px; }	.g2 .p2 { top: 118px; left: 100px; }	.g3 .p2 { top: 100px; left: 123px; }
+			.g1 .p3 { top: 134px; left: 124px; }	.g2 .p3 { top: 124px; left: 100px; }	.g3 .p3 { top: 100px; left: 134px; }
+			.g1 .p4 { top: 145px; left: 129px; }	.g2 .p4 { top: 129px; left: 100px; }	.g3 .p4 { top: 100px; left: 145px; }
+			.g1 .p5 { top: 156px; left: 132px; }	.g2 .p5 { top: 132px; left: 100px; }	.g3 .p5 { top: 100px; left: 156px; }
+			.g1 .p6 { top: 167px; left: 134px; }	.g2 .p6 { top: 134px; left: 100px; }	.g3 .p6 { top: 100px; left: 167px; }
+			.g1 .p7 { top: 178px; left: 135px; }	.g2 .p7 { top: 135px; left: 100px; }	.g3 .p7 { top: 100px; left: 178px; }
+			.g1 .p8 { top: 190px; left: 135px; }	.g2 .p8 { top: 135px; left: 100px; }	.g3 .p8 { top: 100px; left: 190px; }
+			.g1 .p9 { top: 201px; left: 135px; }	.g2 .p9 { top: 135px; left: 100px; }	.g3 .p9 { top: 100px; left: 201px; }
+			.g1 .p10 { top: 213px; left: 135px; }	.g2 .p10 { top: 135px; left: 100px; }	.g3 .p10 { top: 100px; left: 213px; }
+			.g1 .p11 { top: 225px; left: 135px; }	.g2 .p11 { top: 135px; left: 100px; }	.g3 .p11 { top: 100px; left: 225px; }
+			.g1 .p12 { top: 237px; left: 135px; }	.g2 .p12 { top: 135px; left: 100px; }	.g3 .p12 { top: 100px; left: 237px; }
+			.g1 .p13 { top: 249px; left: 137px; }	.g2 .p13 { top: 137px; left: 100px; }	.g3 .p13 { top: 100px; left: 249px; }
+			.g1 .p14 { top: 262px; left: 139px; }	.g2 .p14 { top: 139px; left: 100px; }	.g3 .p14 { top: 100px; left: 262px; }
+			.g1 .p15 { top: 274px; left: 142px; }	.g2 .p15 { top: 142px; left: 100px; }	.g3 .p15 { top: 100px; left: 274px; }
+			.g1 .p16 { top: 288px; left: 146px; }	.g2 .p16 { top: 146px; left: 100px; }	.g3 .p16 { top: 100px; left: 288px; }
+			.g1 .p17 { top: 301px; left: 153px; }	.g2 .p17 { top: 153px; left: 100px; }	.g3 .p17 { top: 100px; left: 301px; }
+			.g1 .p18 { top: 315px; left: 161px; }	.g2 .p18 { top: 161px; left: 100px; }	.g3 .p18 { top: 100px; left: 315px; }
+			.g1 .p19 { top: 330px; left: 171px; }	.g2 .p19 { top: 171px; left: 100px; }	.g3 .p19 { top: 100px; left: 330px; }
+			.g1 .p20 { top: 344px; left: 184px; }	.g2 .p20 { top: 184px; left: 100px; }	.g3 .p20 { top: 100px; left: 344px; }
+		</style>
+	</head>
+	<body>
+		<div class='g1'>
+			<span class='P pA'></span>
+			<span class='P pB'></span>
+			<span class='P pC'></span>
+			<span class='P pD'></span>
+			<span class='B p1'></span>
+			<span class='B p2'></span>
+			<span class='B p3'></span>
+			<span class='B p4'></span>
+			<span class='B p5'></span>
+			<span class='B p6'></span>
+			<span class='B p7'></span>
+			<span class='B p8'></span>
+			<span class='B p9'></span>
+			<span class='B p10'></span>
+			<span class='B p11'></span>
+			<span class='B p12'></span>
+			<span class='B p13'></span>
+			<span class='B p14'></span>
+			<span class='B p15'></span>
+			<span class='B p16'></span>
+			<span class='B p17'></span>
+			<span class='B p18'></span>
+			<span class='B p19'></span>
+			<span class='B p20'></span>
+		</div>
+		<div class='g2'>
+			<span class='P pA'></span>
+			<span class='P pB'></span>
+			<span class='P pC'></span>
+			<span class='P pD'></span>
+			<span class='B p1'></span>
+			<span class='B p2'></span>
+			<span class='B p3'></span>
+			<span class='B p4'></span>
+			<span class='B p5'></span>
+			<span class='B p6'></span>
+			<span class='B p7'></span>
+			<span class='B p8'></span>
+			<span class='B p9'></span>
+			<span class='B p10'></span>
+			<span class='B p11'></span>
+			<span class='B p12'></span>
+			<span class='B p13'></span>
+			<span class='B p14'></span>
+			<span class='B p15'></span>
+			<span class='B p16'></span>
+			<span class='B p17'></span>
+			<span class='B p18'></span>
+			<span class='B p19'></span>
+			<span class='B p20'></span>
+		</div>
+		<div class='g3'>
+			<span class='P pA'></span>
+			<span class='P pB'></span>
+			<span class='P pC'></span>
+			<span class='P pD'></span>
+			<span class='B p1'></span>
+			<span class='B p2'></span>
+			<span class='B p3'></span>
+			<span class='B p4'></span>
+			<span class='B p5'></span>
+			<span class='B p6'></span>
+			<span class='B p7'></span>
+			<span class='B p8'></span>
+			<span class='B p9'></span>
+			<span class='B p10'></span>
+			<span class='B p11'></span>
+			<span class='B p12'></span>
+			<span class='B p13'></span>
+			<span class='B p14'></span>
+			<span class='B p15'></span>
+			<span class='B p16'></span>
+			<span class='B p17'></span>
+			<span class='B p18'></span>
+			<span class='B p19'></span>
+			<span class='B p20'></span>
+		</div>
+	</body>
+</html>
