@@ -1,26 +1,5 @@
-#include <cstdio>
 #include <cstdlib>
 #include <GL/glut.h>
-
-char TEXTURA_DO_PLANO[13] = "chao.rgb";
-GLuint  textura_plano;
-
-void material(float r, float g, float b, float a, float s)
-{
-	GLfloat ambiente[] = { r/2, g/2, b/2, a };
-	GLfloat difusa[] = { r, g, b, a };
-	GLfloat especular[] = { s, s, s, a };
-	GLfloat brilho[] = { 50 };
-
-	glMaterialfv(GL_FRONT_AND_BACK, GL_AMBIENT, ambiente);
-	glMaterialfv(GL_FRONT_AND_BACK, GL_DIFFUSE, difusa);
-	glMaterialfv(GL_FRONT_AND_BACK, GL_SPECULAR, especular);
-	glMaterialfv(GL_FRONT_AND_BACK, GL_SHININESS, brilho);
-}
-
-GLfloat posicao_luz[] = { 0.0, 3.0, 0.0, 1.0 };
-GLfloat cor_luz[] = { 0.5, 0.5, 0.5, 1.0 };
-GLfloat cor_luz_amb[] = { 0.7, 0.7, 0.7, 1.0 };
 
 static int rot = 0;
 static int pos = 0;
@@ -29,31 +8,18 @@ void init() {
 	glClearColor(0.0, 0.0, 0.0, 0.0);
 	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 	glEnable(GL_BLEND);
-	glEnable(GL_DEPTH_TEST);
-	
-	int light = GL_LIGHT0;
-	
-	glLightfv(light, GL_DIFFUSE, cor_luz);
-	glLightfv(light, GL_SPECULAR, cor_luz);
-	glLightfv(light, GL_AMBIENT, cor_luz_amb);
-	glLightfv(light, GL_POSITION, posicao_luz);
-
-	glEnable(GL_LIGHTING);
-	glEnable(light);
-
+	glEnable(GL_DEPTH_TEST);	
 	glEnable(GL_AUTO_NORMAL);
 	glEnable(GL_NORMALIZE);
 }
 
-float toSee = 50;
-
 void chao()
 {
-	material(1, 1, 0, 1, 1);
+	glColor3f(1, 1, 0);
 
 	glPushMatrix();
 	glTranslatef(0, 0, 0);
-	glScalef(500 / toSee, 2 / toSee, 300 / toSee);
+	glScalef(500, 2, 300);
 	glutSolidCube(1.0);
 	glPopMatrix();
 }
@@ -61,17 +27,16 @@ void chao()
 void rodinha(float x, float z)
 {
 	glPushMatrix();
-	glTranslatef(x, 6 / toSee, z);
-	glutSolidSphere(5 / toSee, 20, 20);
+	glTranslatef(x, 6, z);
+	glutSolidSphere(5, 20, 20);
 	glPopMatrix();
 }
 
 void rodinhas()
 {
-	float y = 1;
-	material(1, 0, 0, 1, 1);
+	glColor3f(1, 0, 0);
 
-	float position = 45 / toSee;
+	float position = 45;
 	rodinha(position, position);
 	rodinha(-position, position);
 	rodinha(position, -position);
@@ -80,18 +45,17 @@ void rodinhas()
 
 void maquina()
 {
-	material(0, 0, 1, 1, 1);
+	glColor3f(0, 0, 1);
 
 	glPushMatrix();
-	glTranslatef(0, 71 / toSee, 0);
-	glScalef(100 / toSee, 120 / toSee, 100 / toSee);
+	glTranslatef(0, 71, 0);
+	glScalef(100, 120, 100);
 	glutSolidCube(1.0);
 	glPopMatrix();
 }
 
 void display() {
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-	glEnable(GL_LIGHTING);
 	glPushMatrix();
 
 	glTranslatef(0, 0, pos);
@@ -109,10 +73,10 @@ void reshape(int w, int h) {
 	glViewport(0, 0, w, h);
 	glMatrixMode(GL_PROJECTION);
 	glLoadIdentity();
-	gluPerspective(65.0, w * 1.0 / h, 1.0, 20.0);
+	gluPerspective(65.0, w * 1.0 / h, 1.0, 600.0);
 	glMatrixMode(GL_MODELVIEW);
 	glLoadIdentity();
-	glTranslatef(0.0, -3.0, -10.0);
+	glTranslatef(0.0, -66.0, -300.0);
 }
 
 void keyboard(unsigned char key, int x, int y) {
@@ -126,11 +90,11 @@ void keyboard(unsigned char key, int x, int y) {
 	        glutPostRedisplay();
 	        break;
 	    case 'w':
-	        pos++;
+	        pos+=10;
 	        glutPostRedisplay();
 	        break;
 	    case 's':
-	        pos--;
+	        pos-=10;
 	        glutPostRedisplay();
 	        break;
 	    case 27:                                         // tecla Esc (encerra o programa)
